@@ -1,0 +1,37 @@
+def dekart(a, b, n):
+    while b[n] != 0:
+        if n + 1 < lena:
+            n += 1
+            return dekart(a, b, n)
+        abc = []
+        for i in range(lena):
+            abc.append(a[i][-b[i]])
+        ab.append(abc)
+        b[n] -= 1
+    if n == 0:
+        return
+    b[n] = len(a[n])
+    b[n-1] -= 1
+    n = 0
+    return dekart(a, b, n)
+
+a = []
+print('''Вводите точки вектора в строку через пробел.
+Чтобы перейти к следующему вектору нажмите "Enter".
+Чтобы закончить ввод напишите "stop".
+ ''')
+c = input('1   ').split(' ')
+b = 2
+while c[0] != 'stop':
+    a.append(c)
+    print(b, end = '   ')
+    b += 1
+    c = input().split(' ')
+lena = len(a)
+ab = []
+b = []
+for i in range(lena):
+    b.append(len(a[i]))    
+n = 0
+dekart(a, b, n)    
+print(ab)
